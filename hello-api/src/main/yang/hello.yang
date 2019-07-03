@@ -1,0 +1,102 @@
+module hello {
+    yang-version 1.1;
+    namespace "urn:opendaylight:params:xml:ns:yang:hello";
+    prefix "hello";
+    import ietf-yang-types { prefix "yang"; revision-date "2013-07-15";}
+    revision "2019-07-01" {
+        description "Initial revision of hello model";
+    }
+
+    grouping student {
+
+        leaf number {
+            type uint16;
+        }
+
+        leaf name {
+            type string;
+        }
+
+        leaf age {
+            type uint16;
+        }
+
+        leaf sex {
+            type enumeration
+            {
+                 enum "boy"
+                 {
+                     value 0;
+                 }
+                 enum "girl"
+                 {
+                     value 1;
+                 }
+            }
+        }
+    }
+
+    container students-data {
+        list students
+        {
+            key number;
+            uses student;
+        }
+    }
+
+    rpc add-student {
+        input {
+            uses student;
+        }
+    }
+
+    rpc get-student-info {
+        input {
+            leaf number {
+                type uint16;
+            }
+        }
+        output{
+            uses student;
+        }
+    }
+
+    rpc publish-student-notification {
+        input {
+            leaf number {
+                type uint16;
+            }
+
+            leaf name {
+                type string;
+            }
+
+            leaf lesson {
+                type string;
+            }
+
+            leaf reason {
+                type string;
+            }
+        }
+    }
+
+    notification student-play-truant {
+        description "A student play truant has been detected";
+        leaf number {
+            type uint16;
+        }
+
+        leaf name {
+            type string;
+        }
+
+        leaf lesson {
+            type string;
+        }
+
+        leaf reason {
+            type string;
+        }
+    }
+}
