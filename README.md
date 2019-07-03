@@ -1,3 +1,3 @@
 # hello-odl
 opendaylight demo project
-base on oxygen-sr4
+based on oxygen-sr4
