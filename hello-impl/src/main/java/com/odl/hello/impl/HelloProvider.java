@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Description hello 服务类-工程服务启动入口 生产者
+ * @Description hello 服务类-工程服务启动入口. 生产者 Service Class - Engineering Services Start-up Entry. Producer
  * @Author songbo
  * @Date 2019/7/2 15:21
  * @Version 1.0
