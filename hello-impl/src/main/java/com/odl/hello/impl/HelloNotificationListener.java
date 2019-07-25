@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Description HelloNotificationListener
+ * @Description HelloNotificationListener 接收通知的类 Classes that receive notifications
  * @Author songbo
  * @Date 2019/7/3 9:13
  * @Version 1.0

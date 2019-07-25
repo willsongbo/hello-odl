@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * @Description hello
+ * @Description hello 实现rpc的类 消费者 Class Consumers Implementing RPC
  * @Author songbo
  * @Date 2019/7/2 15:21
  * @Version 1.0
@@ -38,6 +38,7 @@ public class HelloImpl implements HelloService {
     private static final Logger LOG = LoggerFactory.getLogger(HelloImpl.class);
 
     /**
+     * RPC
      * add student info to data-store
      * 添加单个学生信息到数据库中
      *
@@ -63,6 +64,7 @@ public class HelloImpl implements HelloService {
     }
 
     /**
+     * RPC
      * get student info
      * 根据学号从数据库钟获取单个学生的信息
      *
@@ -91,6 +93,7 @@ public class HelloImpl implements HelloService {
     }
 
     /**
+     * notification
      * publishStudentNotification
      * 发布学生逃课的信息
      *
