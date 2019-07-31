@@ -9,6 +9,7 @@ package com.odl.hello.impl;
 
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.md.sal.binding.api.NotificationPublishService;
+import org.opendaylight.yangtools.concepts.ListenerRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +22,7 @@ import org.slf4j.LoggerFactory;
 public class HelloProvider {
 
     private static final Logger LOG = LoggerFactory.getLogger(HelloProvider.class);
-
+    private HelloStudentDataListener helloStudentDataListener;
     /**
      * 数据库服务 Database Services
      */
@@ -41,6 +42,7 @@ public class HelloProvider {
     public HelloProvider(final DataBroker dataBroker, NotificationPublishService notificationPublishService) {
         HelloProvider.dataBroker = dataBroker;
         HelloProvider.notificationPublishService = notificationPublishService;
+
     }
 
     public static DataBroker getDataBroker() {
@@ -56,6 +58,7 @@ public class HelloProvider {
      * Method called when the blueprint container is created.
      */
     public void init() {
+        helloStudentDataListener = new HelloStudentDataListener();
         LOG.info("HelloProvider Session Initiated");
     }
 
