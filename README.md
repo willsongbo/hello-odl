@@ -4,7 +4,7 @@ based on oxygen-sr4
 
 The demo example of opendaylight is for learning.
 After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment.
-There are several basic typical examples:
+There are several basic typical functional examples:
 #
 1) rpc
 #
