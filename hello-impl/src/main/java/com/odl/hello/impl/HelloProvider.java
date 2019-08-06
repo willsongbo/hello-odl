@@ -9,7 +9,6 @@ package com.odl.hello.impl;
 
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.md.sal.binding.api.NotificationPublishService;
-import org.opendaylight.yangtools.concepts.ListenerRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,6 +35,7 @@ public class HelloProvider {
      * 服务类构造方法，用于蓝图加载此类. 注意构造方法参数和蓝图文件的对应
      * Service class construction method for blueprint loading of this class. Pay attention to the correspondence of
      * construction method parameters and blueprint files
+     *
      * @param dataBroker
      * @param notificationPublishService
      */
@@ -67,6 +67,7 @@ public class HelloProvider {
      * Method called when the blueprint container is destroyed.
      */
     public void close() {
+        helloStudentDataListener.close();
         LOG.info("HelloProvider Closed");
     }
 }
