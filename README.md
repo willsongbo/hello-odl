@@ -13,3 +13,9 @@ There are several basic typical functional examples:
 3) notification
 #
 4) dataChangeListener
+#
+5) remote-rpc (routed-rpc)
+#
+Remote RPC calls input parameter structure：
+#
+{"input":{"controller-ip":"/hello:controller-ips/hello:controller-ip-list[hello:ip='172.20.14.164']"}}
