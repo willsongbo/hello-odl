@@ -12,6 +12,9 @@ import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.re
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.GetStudentInfoOutputBuilder;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.HelloService;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.PublishStudentNotificationInput;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.RemoteCallInput;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.RemoteCallOutput;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.RemoteCallOutputBuilder;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.StudentPlayTruant;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.StudentPlayTruantBuilder;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev190701.StudentsData;
@@ -92,6 +95,17 @@ public class HelloImpl implements HelloService {
         return Futures.immediateFuture(RpcResultBuilder.<GetStudentInfoOutput>failed().withError(RpcError.ErrorType.RPC, "getStudentInfo fail !").build());
     }
 
+    @Override
+    public Future<RpcResult<RemoteCallOutput>> remoteCall(RemoteCallInput input) {
+        System.out.println("this is call me");
+        LOG.info("this is call me");
+        RemoteCallOutput remoteCallOutput = new RemoteCallOutputBuilder()
+                .setMsg("hello remote call.")
+                .build();
+        return Futures.immediateFuture(RpcResultBuilder.<RemoteCallOutput>success().withResult(remoteCallOutput)
+                .build());
+    }
+
     /**
      * notification
      * publishStudentNotification
@@ -111,4 +125,5 @@ public class HelloImpl implements HelloService {
         HelloProvider.getNotificationPublishService().offerNotification(studentPlayTruant);
         return Futures.immediateFuture(RpcResultBuilder.<Void>success().build());
     }
+
 }

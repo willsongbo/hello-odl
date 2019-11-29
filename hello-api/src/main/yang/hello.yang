@@ -3,8 +3,18 @@ module hello {
     namespace "urn:opendaylight:params:xml:ns:yang:hello";
     prefix "hello";
     import ietf-yang-types { prefix "yang"; revision-date "2013-07-15";}
+    import yang-ext {prefix "ext"; revision-date "2013-07-09";}
+
     revision "2019-07-01" {
         description "Initial revision of hello model";
+    }
+
+    identity controller-ip {
+        description "A controller-ip is a classifier for member elements which allows an RPC to provide a service on behalf of a particular element in the data tree.";
+    }
+
+    typedef member-ip-ref {
+        type instance-identifier;
     }
 
     grouping student {
@@ -44,6 +54,16 @@ module hello {
         }
     }
 
+    container controller-ips {
+      description "Top-level container for all controller";
+      list controller-ip-list {
+        key "ip";
+        leaf ip {
+            type string;
+        }
+      }
+    }
+
     rpc add-student {
         input {
             uses student;
@@ -81,6 +101,21 @@ module hello {
         }
     }
 
+    rpc remote-call{
+        input {
+            leaf controller-ip {
+                ext:context-reference "controller-ip";
+                type member-ip-ref;
+            }
+        }
+
+        output {
+            leaf msg {
+                type string;
+            }
+        }
+    }
+
     notification student-play-truant {
         description "A student play truant has been detected";
         leaf number {
@@ -99,4 +134,5 @@ module hello {
             type string;
         }
     }
+
 }

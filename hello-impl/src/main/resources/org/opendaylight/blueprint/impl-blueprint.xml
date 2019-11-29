@@ -19,17 +19,20 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
                interface="org.opendaylight.controller.md.sal.binding.api.NotificationPublishService"
                odl:type="default"/>
 
+    <!--注册实现类并注入rpc服务 Register implementation classes and inject RPC services-->
+    <bean id="helloImpl" class="com.odl.hello.impl.HelloImpl"/>
+    <odl:rpc-implementation ref="helloImpl"/>
+
+    <odl:routed-rpc-implementation id="remoteCallRpcReg" ref="helloImpl"/>
+
     <!--注册provider类并注入数据库和通知服务 Register provider classes and inject database and notification services-->
     <bean id="provider"
           class="com.odl.hello.impl.HelloProvider"
           init-method="init" destroy-method="close">
         <argument ref="dataBroker"/>
         <argument ref="notificationPublishService"/>
+        <property name="rpcRegistration" ref="remoteCallRpcReg"/>
     </bean>
-
-    <!--注册实现类并注入rpc服务 Register implementation classes and inject RPC services-->
-    <bean id="helloImpl" class="com.odl.hello.impl.HelloImpl"/>
-    <odl:rpc-implementation ref="helloImpl"/>
 
     <!--注册接收通知的类，并注入notification服务 Register the class that receives notifications and inject notification services-->
     <bean id="helloNotificationListener" class="com.odl.hello.impl.HelloNotificationListener"/>
