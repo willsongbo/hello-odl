@@ -15,6 +15,7 @@ module hello {
 
     typedef member-ip-ref {
         type instance-identifier;
+        description "A reference that points to an hello:controller-ips/controller-ip-list in the data tree.";
     }
 
     grouping student {

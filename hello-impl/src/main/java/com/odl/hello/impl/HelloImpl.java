@@ -100,7 +100,7 @@ public class HelloImpl implements HelloService {
         System.out.println("this is call me");
         LOG.info("this is call me");
         RemoteCallOutput remoteCallOutput = new RemoteCallOutputBuilder()
-                .setMsg("hello remote call.")
+                .setMsg("hello remote call. This is "+HelloProvider.localIp)
                 .build();
         return Futures.immediateFuture(RpcResultBuilder.<RemoteCallOutput>success().withResult(remoteCallOutput)
                 .build());

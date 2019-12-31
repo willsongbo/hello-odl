@@ -61,14 +61,17 @@ public class HelloStudentDataListener implements AutoCloseable, DataTreeChangeLi
 
     private void handleWrite(StudentsData before, StudentsData after) {
         //todo  do write change job
+        LOG.info("onDataTreeChanged write");
     }
 
     private void handleDelete(StudentsData before, StudentsData after) {
         //todo  do delete change job
+        LOG.info("onDataTreeChanged delete");
     }
 
     private void handleSubtreeModify(StudentsData before, StudentsData after) {
         //todo  do modify change job
+        LOG.info("onDataTreeChanged update");
     }
 
     @Override

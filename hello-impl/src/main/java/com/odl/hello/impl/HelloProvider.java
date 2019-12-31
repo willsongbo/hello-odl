@@ -42,6 +42,7 @@ public class HelloProvider {
 
     public static final String IP_PATH = "etc/ip.properties";
     public static final String IP = "IP";
+    public static String localIp ;
 
     /**
      * 服务类构造方法，用于蓝图加载此类. 注意构造方法参数和蓝图文件的对应
@@ -80,11 +81,11 @@ public class HelloProvider {
     public void init() {
         helloStudentDataListener = new HelloStudentDataListener();
 
-        String scene = Property.getProperties(IP_PATH).getOrDefault(IP, "");
+        localIp = Property.getProperties(IP_PATH).getOrDefault(IP, "");
 
         final InstanceIdentifier.InstanceIdentifierBuilder<ControllerIpList> controllerIpListIID =
                 InstanceIdentifier.builder(ControllerIps.class).child(ControllerIpList.class, new ControllerIpListKey
-                        (scene));
+                        (localIp));
         final InstanceIdentifier<ControllerIpList> controllerIpIID = controllerIpListIID.build();
         rpcRegistration.registerPath(ControllerIp.class, controllerIpIID);
         LOG.info("HelloProvider Session Initiated");
@@ -95,6 +96,7 @@ public class HelloProvider {
      * Method called when the blueprint container is destroyed.
      */
     public void close() {
+        rpcRegistration.close();
         helloStudentDataListener.close();
         LOG.info("HelloProvider Closed");
     }
