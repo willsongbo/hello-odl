@@ -5,6 +5,11 @@ based on oxygen-sr4
 The demo example of opendaylight is for learning.
 After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment.
 There are several basic typical functional examples:
+
+ODL的demo项目，基于oxygen-sr4版本开发，适合新手同学学习。
+项目用maven编译后，odl包会在karaf的目录生成，拷贝到JVM环境就可运行，要求jdk1.8及以上。
+主要包含下面几个技术点：
+
 #
 1) rpc
 #
@@ -16,9 +21,15 @@ There are several basic typical functional examples:
 #
 5) remote-rpc (routed-rpc)
 #
-Remote RPC calls input parameter structure：
-#
+
+远程rpc的入参比较特殊，所以单独写一下示例：
 {"input":{"controller-ip":"/hello:controller-ips/hello:controller-ip-list[hello:ip='172.20.14.164']"}}
 
-需要添加ip.properties属性文件，放在odl的etc目录下，文件配置示例：IP=172.20.14.164
-因为每个集群成员都需要一个key，这里我使用成员的ip地址作为key，获取ip的方式就是读取这个ip.properties文件。
+远程rpc和集群需要一个ip.properties文件还有集群配置文件，都放在了karaf的config文件夹中。运行ODL前要把ip.properties放在odl的etc目录下，两个集群配置文件放在odl的bin目录。
+
+ip.properties文件配置示例：IP=1.1.1.1（当前控制器管理地址）
+
+在远程rpc中，因为每个集群成员都需要一个key，这里我使用成员的ip地址作为key，获取ip的方式就是读取这个ip.properties文件。
+
+更多关于项目的详细信息，参考简书文章链接：
+https://www.jianshu.com/p/4b76e8dfc21e
