@@ -30,3 +30,5 @@ ODL的demo项目，基于oxygen-sr4版本开发，适合新手同学学习。
 ip.properties文件配置示例：IP=1.1.1.1（当前控制器管理地址）
 
 在远程rpc中，因为每个集群成员都需要一个key，这里我使用成员的ip地址作为key，获取ip的方式就是读取这个ip.properties文件。
+
+关于项目更多的讲解，请参考我的简书文章：https://www.jianshu.com/p/4b76e8dfc21e
