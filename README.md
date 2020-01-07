@@ -23,7 +23,7 @@ ODL的demo项目，基于oxygen-sr4版本开发，适合新手同学学习。
 #
 
 远程rpc的入参比较特殊，所以单独写一下示例：
-{"input":{"controller-ip":"/hello:controller-ips/hello:controller-ip-list[hello:ip='172.20.14.164']"}}
+{"input":{"controller-ip":"/hello:controller-ips/hello:controller-ip-list[hello:ip='1.1.1.1']"}}
 
 远程rpc和集群需要一个ip.properties文件还有集群配置文件，都放在了karaf的config文件夹中。运行ODL前要把ip.properties放在odl的etc目录下，两个集群配置文件放在odl的bin目录。
 
