@@ -31,4 +31,4 @@ ip.properties文件配置示例：IP=1.1.1.1（当前控制器管理地址）
 
 在远程rpc中，因为每个集群成员都需要一个key，这里我使用成员的ip地址作为key，获取ip的方式就是读取这个ip.properties文件。
 
-更多关于此项目的讲解，可参考我的简书文章链接：https://www.jianshu.com/p/4b76e8dfc21e
+更多关于此项目的讲解，可参考我的sdnlab文章链接：https://www.sdnlab.com/23834.html
