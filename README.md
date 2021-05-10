@@ -1,9 +1,11 @@
 # hello-odl-Aluminum
-opendaylight demo project
-based on Aluminum
+opendaylight demo project based on Aluminum
 
 
-After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment. Jdk version need jdk11.
+After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment
+#
+Jdk version need jdk11
+#
 There are several basic typical functional examples:
 
 #
