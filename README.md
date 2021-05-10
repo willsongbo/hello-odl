@@ -1,10 +1,12 @@
 # hello-odl
-opendaylight demo project
-based on oxygen-sr4
+opendaylight demo projectbased on oxygen-sr4
 
 The demo example of opendaylight is for learning.
+#
 After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment. 
+#
 Jdk version need jdk8.
+#
 There are several basic typical functional examples:
 
 ODL的demo项目，基于oxygen-sr4版本开发，适合新手同学学习。
