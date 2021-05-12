@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="Hibernate" />
+        <datasource-mapping />
+        <naming-strategy-map />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="hello-api" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.model:yang-ext:2013.09.07.18.8" level="project" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991:6.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991-ietf-inet-types:6.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.model:ietf-type-util:6.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-spec-util:6.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991-ietf-yang-types:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.yangtools:rfc8528-data-api:5.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-eos-dom-api:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-generator-impl:6.0.8" level="project" />
@@ -20,7 +37,6 @@
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-dom-codec-osgi:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-runtime-osgi:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-runtime-spi:6.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.model:yang-ext:2013.09.07.18.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-spi:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-util:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-dom-adapter:6.0.8" level="project" />
@@ -94,7 +110,6 @@
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-java8-compat_2.13:0.9.1" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.stax-utils:stax-utils:20070216" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-dom-codec-api:6.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-spec-util:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal:mdsal-binding-runtime-api:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.11" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.controller:sal-distributed-eos:2.0.7" level="project" />
@@ -159,8 +174,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.56.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.56.Final" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.yangtools:yang-model-export:5.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991:6.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991-ietf-inet-types:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc7895:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.netconf:netconf-util:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.aaa:aaa-filterchain:0.12.2" level="project" />
@@ -193,8 +206,6 @@
     <orderEntry type="library" name="Maven: org.opendaylight.netconf:ietf-netconf-with-defaults:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.netconf:restconf-nb-rfc8040:1.12.2" level="project" />
     <orderEntry type="library" name="Maven: org.opendaylight.netconf:netconf-dom-api:1.9.2" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.binding.model.ietf:rfc6991-ietf-yang-types:6.0.8" level="project" />
-    <orderEntry type="library" name="Maven: org.opendaylight.mdsal.model:ietf-type-util:6.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-server:9.4.31.v20200723" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-common:9.4.31.v20200723" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-api:9.4.31.v20200723" level="project" />
@@ -354,6 +365,7 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.16" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:6.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />

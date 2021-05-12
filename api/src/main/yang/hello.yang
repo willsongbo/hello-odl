@@ -3,7 +3,137 @@ module hello {
     namespace "urn:opendaylight:params:xml:ns:yang:hello";
     prefix "hello";
 
+    import ietf-yang-types { prefix "yang"; revision-date "2013-07-15";}
+    import yang-ext { prefix "ext"; }
+
     revision "2021-05-08" {
         description "Initial revision of hello model";
+    }
+
+     identity controller-ip {
+            description "A controller-ip is a classifier for member elements which allows an RPC to provide a service on behalf of a particular element in the data tree.";
+        }
+
+    typedef member-ip-ref {
+        type instance-identifier;
+        description "A reference that points to an hello:controller-ips/controller-ip-list in the data tree.";
+    }
+
+    grouping student {
+
+        leaf number {
+            type uint16;
+        }
+
+        leaf name {
+            type string;
+        }
+
+        leaf age {
+            type uint16;
+        }
+
+        leaf sex {
+            type enumeration
+            {
+                 enum "boy"
+                 {
+                     value 0;
+                 }
+                 enum "girl"
+                 {
+                     value 1;
+                 }
+            }
+        }
+    }
+
+    container students-data {
+        list students
+        {
+            key number;
+            uses student;
+        }
+    }
+
+    container controller-ips {
+      description "Top-level container for all controller";
+      list controller-ip-list {
+        key "ip";
+        leaf ip {
+            type string;
+        }
+      }
+    }
+
+    rpc add-student {
+        input {
+            uses student;
+        }
+    }
+
+    rpc get-student-info {
+        input {
+            leaf number {
+                type uint16;
+            }
+        }
+        output{
+            uses student;
+        }
+    }
+
+    rpc publish-student-notification {
+        input {
+            leaf number {
+                type uint16;
+            }
+
+            leaf name {
+                type string;
+            }
+
+            leaf lesson {
+                type string;
+            }
+
+            leaf reason {
+                type string;
+            }
+        }
+    }
+
+    rpc remote-call{
+        input {
+            leaf controller-ip {
+                ext:context-reference "controller-ip";
+                type member-ip-ref;
+            }
+        }
+
+        output {
+            leaf msg {
+                type string;
+            }
+        }
+    }
+
+    notification student-play-truant {
+        description "A student play truant has been detected";
+        leaf number {
+            type uint16;
+        }
+
+        leaf name {
+            type string;
+        }
+
+        leaf lesson {
+            type string;
+        }
+
+        leaf reason {
+            type string;
+        }
     }
 }
