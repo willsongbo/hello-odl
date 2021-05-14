@@ -51,6 +51,10 @@ public class HelloImpl implements HelloService {
     private static final
         Logger LOG = LoggerFactory.getLogger(HelloImpl.class);
 
+    public HelloImpl() {
+
+    }
+
     /**
      * RPC.
      * add student info to data-store.

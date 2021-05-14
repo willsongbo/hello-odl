@@ -29,12 +29,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
   </scm>
 
   <modules>
+    <module>artifacts</module>
     <module>api</module>
     <module>impl</module>
-    <module>features</module>
-    <module>artifacts</module>
     <module>cli</module>
     <module>it</module>
+    <module>features</module>
+    <module>karaf</module>
   </modules>
 
   <profiles>

@@ -29,7 +29,7 @@ import java.util.Set;
  * @Date 2019/7/2 15:21
  * @Version 1.0
  **/
-public class HelloProvider {
+public class HelloProvider implements AutoCloseable{
 
     private static final Logger LOG = LoggerFactory.getLogger(HelloProvider.class);
     private HelloStudentDataListener helloStudentDataListener;
@@ -44,7 +44,6 @@ public class HelloProvider {
      * 通知发布服务 Notification Publishing Service
      */
     private static NotificationPublishService notificationPublishService;
-
 
     public static final String IP_PATH = "etc/ip.properties";
     public static final String IP = "IP";
@@ -67,6 +66,19 @@ public class HelloProvider {
 
         // Add global registration
         regs.add(rpcProviderService.registerRpcImplementation(HelloService.class, helloRpcImplementation));
+
+        helloStudentDataListener = new HelloStudentDataListener();
+
+        localIp = Property.getProperties(IP_PATH).getOrDefault(IP, "");
+
+        final InstanceIdentifier.InstanceIdentifierBuilder<ControllerIpList> controllerIpListIID =
+                InstanceIdentifier.builder(ControllerIps.class).child(ControllerIpList.class, new ControllerIpListKey
+                        (localIp));
+        final InstanceIdentifier<ControllerIpList> controllerIpIID = controllerIpListIID.build();
+
+        regs.add(HelloProvider.rpcProviderService.registerRpcImplementation(HelloService.class, HelloProvider.helloRpcImplementation,
+                ImmutableSet.of(controllerIpIID)));
+        LOG.info("HelloProvider Session Initiated");
     }
 
     public static DataBroker getDataBroker() {
@@ -78,28 +90,10 @@ public class HelloProvider {
     }
 
     /**
-     * 服务类初始化方法用于初始化注册监听等服务，蓝图初始化会调用此方法
-     * Method called when the blueprint container is created.
-     */
-    public void init() {
-        helloStudentDataListener = new HelloStudentDataListener();
-
-        localIp = Property.getProperties(IP_PATH).getOrDefault(IP, "");
-
-        final InstanceIdentifier.InstanceIdentifierBuilder<ControllerIpList> controllerIpListIID =
-                InstanceIdentifier.builder(ControllerIps.class).child(ControllerIpList.class, new ControllerIpListKey
-                        (localIp));
-        final InstanceIdentifier<ControllerIpList> controllerIpIID = controllerIpListIID.build();
-
-        regs.add(rpcProviderService.registerRpcImplementation(HelloService.class, helloRpcImplementation,
-                ImmutableSet.of(controllerIpIID)));
-        LOG.info("HelloProvider Session Initiated");
-    }
-
-    /**
      * 服务类结束方法，odl退出时，释放资源和关闭服务，蓝图结束时会调用此方法
      * Method called when the blueprint container is destroyed.
      */
+    @Override
     public void close() {
         regs.forEach(ObjectRegistration::close);
         regs.clear();

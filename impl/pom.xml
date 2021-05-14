@@ -39,15 +39,22 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
   </dependencyManagement>
 
   <dependencies>
+      <dependency>
+          <groupId>org.opendaylight.mdsal</groupId>
+          <artifactId>mdsal-binding-api</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.opendaylight.mdsal</groupId>
+          <artifactId>mdsal-common-api</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.opendaylight.controller</groupId>
+          <artifactId>sal-common-util</artifactId>
+      </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>hello-api</artifactId>
       <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.opendaylight.mdsal</groupId>
-      <artifactId>mdsal-binding-api</artifactId>
     </dependency>
 
     <!-- Testing Dependencies -->
@@ -64,22 +71,4 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     </dependency>
   </dependencies>
 
-<!--  <build>-->
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-checkstyle-plugin</artifactId>-->
-<!--        <configuration>-->
-<!--          <propertyExpansion>checkstyle.violationSeverity=error</propertyExpansion>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--      <plugin>-->
-<!--        <groupId>com.github.spotbugs</groupId>-->
-<!--        <artifactId>spotbugs-maven-plugin</artifactId>-->
-<!--        <configuration>-->
-<!--          <failOnError>true</failOnError>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
-<!--  </build>-->
 </project>
