@@ -1,6 +1,7 @@
 # Hello-ODL-Aluminum
 opendaylight demo project based on Aluminum
 
+ ![image](https://github.com/willsongbo/hello-odl/blob/hello-odl-Aluminum/images/al-rest.png)
 
 After compiling with maven, ODL packages can be obtained in hello-karaf and run directly in JVM environment
 #
