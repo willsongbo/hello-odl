@@ -1,4 +1,4 @@
-# hello-odl-Aluminum
+# Hello-ODL-Aluminum
 opendaylight demo project based on Aluminum
 
 
@@ -19,6 +19,8 @@ There are several basic typical functional examples:
 #
 5) remote-rpc (routed-rpc)
 #
+
+# Notice
 
 In general, there is little difference between aluminum version and oxygen version, but there are many changes in some details. for example：
 #
