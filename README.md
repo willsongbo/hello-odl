@@ -33,6 +33,8 @@ Some initialization processes are transferred from init to the construction meth
 Database operation classes like readonlytransaction have been removed and replaced with readtransaction
 #
 More detailed needs to do it yourself development to discover.
+#
+
 
 Aluminium 版本开发框架上总体和oxygen版本差别不大，但是开发上的一些细节有不少的改变，例如：
 #
