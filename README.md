@@ -35,10 +35,11 @@ In general, there is little difference between aluminum version and oxygen versi
 #
 5) Database operation classes like readonlytransaction have been removed and replaced with readtransaction
 #
+6) need maven3.5.2+ and jdk11
+#
 More detailed needs to do it yourself development to discover.
 #
-
-
+#
 Aluminium 版本开发框架上总体和oxygen版本差别不大，但是开发上的一些细节有不少的改变，例如：
 #
 1) 一些controller模块常用类路径的变化
@@ -50,5 +51,7 @@ Aluminium 版本开发框架上总体和oxygen版本差别不大，但是开发�
 4) 初始化的一些过程由init转入provider的构造方法
 #
 5) 数据库操作类像是ReadOnlyTransaction已经移除并替换为ReadTransaction
+#
+6) 需要maven3.5.2+ 和 jdk11
 
 更详细的需要自己动手开发来发现
